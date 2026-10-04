@@ -3,9 +3,8 @@
 An interactive web app that classifies waste images into **30 categories**
 using a deep learning model built with EfficientNetB0.
 
-🔗 **Live Demo:** https://your-app-name.streamlit.app *(replace after deploying)*
+🔗 **Live Demo:** https://waste-classification-demo-fwv65knoqoz7dgfwdsauhn.streamlit.app
 🤗 **Model on Hugging Face:** https://huggingface.co/Darshan764/waste-classification-v2
-
 ---
 
 ## 🎯 What It Does
