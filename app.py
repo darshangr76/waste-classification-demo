@@ -1,12 +1,13 @@
 import streamlit as st
 import numpy as np
 from PIL import Image
-from huggingface_hub import from_pretrained_keras
+from huggingface_hub import snapshot_download
+import tensorflow as tf
 
 @st.cache_resource
 def load_model():
-    # Load using the Keras-specific loader for HF Hub
-    return from_pretrained_keras("Darshan764/waste-classification-v2")
+    local_path = snapshot_download(repo_id="Darshan764/waste-classification-v2")
+    return tf.keras.models.load_model(local_path)
 
 model = load_model()
 
