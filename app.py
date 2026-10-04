@@ -1,13 +1,22 @@
 import streamlit as st
+import tensorflow as tf
 import numpy as np
 from PIL import Image
-from huggingface_hub import from_pretrained_keras
+from huggingface_hub import hf_hub_download
 
 @st.cache_resource
 def load_model():
-    return from_pretrained_keras("Darshan764/waste-classification-v2")
+    # Download the model file to Streamlit's local cache
+    model_path = hf_hub_download(
+        repo_id="Darshan764/waste-classification-v2",
+        filename="best_waste_classifier.keras"  # Check the exact filename in your HF repo
+    )
+    # Now load using the local file path
+    return tf.keras.models.load_model(model_path)
 
 model = load_model()
+
+# ... rest of your app.py stays the same
 
 CLASS_NAMES = [
     "aerosol_cans", "aluminum_food_cans", "aluminum_soda_cans",
